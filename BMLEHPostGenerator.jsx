@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Button } from "../ui/button.jsx";
-import { Textarea } from "../ui/textarea.jsx";
-import { Input } from "../ui/input.jsx";
-import { Card, CardContent } from "../ui/card.jsx";
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "../ui/select.jsx";
+import { Button } from "./ui/button.jsx";
+import { Textarea } from "./ui/textarea.jsx";
+import { Input } from "./ui/input.jsx";
+import { Card, CardContent } from "./ui/card.jsx";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "./ui/select.jsx";
 
 export default function BMLEHPostGenerator() {
   const [step, setStep] = useState("form");
