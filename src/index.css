@@ -1,5 +1,4 @@
 
-body {
-  margin: 0;
-  font-family: 'Manrope', 'Helvetica Neue', sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
