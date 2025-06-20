@@ -3,7 +3,6 @@ import { Button } from "./ui/button.jsx";
 import { Textarea } from "./ui/textarea.jsx";
 import { Input } from "./ui/input.jsx";
 import { Card, CardContent } from "./ui/card.jsx";
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "./ui/select.jsx";
 
 export default function BMLEHPostGenerator() {
   const [step, setStep] = useState("form");
@@ -53,16 +52,20 @@ export default function BMLEHPostGenerator() {
             value={form.weitereInformationen}
             onChange={(e) => setForm({ ...form, weitereInformationen: e.target.value })}
           />
-          <Select onValueChange={(val) => setForm({ ...form, plattform: val })}>
-            <SelectTrigger>
-              <SelectValue placeholder="Plattform wählen" />
-            </SelectTrigger>
-            <SelectContent>
-              {['X', 'Threads', 'Bluesky', 'LinkedIn', 'Instagram'].map(opt => (
-                <SelectItem key={opt} value={opt}>{opt}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          
+<select
+  value={form.plattform}
+  onChange={(e) => setForm({ ...form, plattform: e.target.value })}
+  className="border rounded p-2 w-full"
+>
+  <option value="">Plattform wählen</option>
+  <option value="X">X</option>
+  <option value="Threads">Threads</option>
+  <option value="Bluesky">Bluesky</option>
+  <option value="LinkedIn">LinkedIn</option>
+  <option value="Instagram">Instagram</option>
+</select>
+
           <Button className="bg-[#69B63F] hover:bg-[#1F8743] text-white" onClick={handleSubmit}>
             Abschicken
           </Button>
