@@ -21,8 +21,8 @@ export default function BMLEHPostGenerator() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form)
     });
-    const text = await res.text();
-    const blocks = text.split(/Post \d:/).filter(b => b.trim());
+    const { output } = await res.json();
+    const blocks = output.split(/Post \d:/).filter(b => b.trim());
     setAntworten(blocks.map(b => b.trim()));
     setStep("result");
   }
