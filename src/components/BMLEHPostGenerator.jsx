@@ -23,14 +23,20 @@ export default function BMLEHPostGenerator() {
       let output = result.output || "";
       if (typeof output !== "string") output = JSON.stringify(output);
 
-      const posts = output.split(/\n?\nPost \d:/).map(p => p.trim()).filter(p => p);
-      setAntworten(posts);
+      // Entferne "Post X:" Prefixe und Zeichenangaben in Klammern am Ende
+      const cleaned = output
+        .split(/\n?\nPost \d:/) // trennt bei "Post 1:", "Post 2:", etc.
+        .map(p => p.trim().replace(/\(?\d+\s*Zeichen\)?\.?$/gi, '').trim()) // entfernt Zeichenangabe in Klammern am Ende
+        .filter(p => p);
+
+      setAntworten(cleaned);
       setStep("result");
     } catch (err) {
       console.error("Fehler beim Laden:", err);
       setStep("form");
     }
   }
+
 
   return (
     <div className="min-h-screen p-6" style={{ backgroundColor: "#EBF5DC", color: "#003E2E", fontFamily: "'Manrope', sans-serif" }}>
