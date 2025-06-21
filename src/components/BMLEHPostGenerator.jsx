@@ -10,7 +10,7 @@ export default function BMLEHPostGenerator() {
   });
   const [antworten, setAntworten] = useState([]);
 
-  async function handleSubmit() {
+   async function handleSubmit() {
     setStep("loading");
     try {
       const res = await fetch("https://swo.app.n8n.cloud/webhook/generate-post", {
